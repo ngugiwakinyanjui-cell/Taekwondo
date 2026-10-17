@@ -4,8 +4,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const updates = [
   {
     category: 'Tournament',
-    title: 'Looking ahead to the Charles Michael Taekwondo Open 2027',
-    text: 'We are preparing for the 2027 open. Event dates, venue, registration details, and competition information will be published after they are confirmed.',
+    title: 'Mount Kenya International Taekwondo Open Tournament',
+    text: 'The two-day flagship tournament is scheduled for Saturday 10 and Sunday 11 April 2027 in Limuru. Venue and registration information will be shared as details are confirmed.',
     href: '/open-2027',
     link: 'Explore the Open',
   },
@@ -24,6 +24,18 @@ const updates = [
     link: 'View programmes',
   },
 ];
+
+const moments = [
+  { src: '/images/belt-promotion.webp', alt: 'Athlete receiving a taekwondo belt during a promotion ceremony', title: 'Belt promotion' },
+  { src: '/images/certificate-award.webp', alt: 'Coach and athlete presenting a taekwondo achievement certificate', title: 'Recognising progress' },
+  { src: '/images/belt-ceremony.webp', alt: 'Taekwondo instructor awarding a belt to an athlete', title: 'On the mats' },
+  { src: '/images/dojo-coaches.webp', alt: 'Taekwondo coaches standing together in the training hall', title: 'Coaches at the dojang' },
+  { src: '/images/historic-team.webp', alt: 'Archival photograph of a Kenyan taekwondo team at an event', title: 'From the archive' },
+  { src: '/images/historic-team-meeting.webp', alt: 'Archival team gathering at a taekwondo event', title: 'A sporting community' },
+  { src: '/images/sports-hub-backdrop.webp', alt: 'Coaches at a Phoenix Uamak Sports event backdrop', title: 'Phoenix Uamak Sports' },
+  { src: '/images/coaches-training-wide.webp', alt: 'Three coaches posing on the taekwondo mats', title: 'Coaches in training' },
+  { src: '/images/coaches-portrait.webp', alt: 'Three taekwondo coaches standing together in the dojang', title: 'The coaching team' },
+];
 ---
 
 <BaseLayout
@@ -35,7 +47,7 @@ const updates = [
       <p class="section-subtitle text-red-brand">From the Hub</p>
       <h1 class="font-display font-black text-6xl md:text-8xl leading-none mb-6">News &amp; Updates</h1>
       <p class="font-body text-blue-100 text-xl max-w-2xl leading-relaxed">
-        Follow our training, tournaments, and the work behind the Charles Michael Taekwondo Open.
+        Follow our training, tournaments, and the work behind our flagship Mount Kenya International Taekwondo Open Tournament.
       </p>
     </div>
   </section>
@@ -45,7 +57,7 @@ const updates = [
       <div class="max-w-3xl mb-10 reveal">
         <h2 class="section-title mb-3">Latest from CMSH</h2>
         <p class="font-body text-gray-600 text-lg">
-          Confirmed news will be added here. The updates below point to current information on our site; no event date, venue, or registration opening is announced unless stated on the event page.
+          Follow our community through recent training and event moments. The tournament is scheduled for 10–11 April 2027; venue details and registration information will be shared when confirmed.
         </p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -58,6 +70,30 @@ const updates = [
               {update.link} →
             </a>
           </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10 reveal">
+        <p class="section-subtitle">Our Community</p>
+        <h2 class="section-title mb-3">Moments from the Hub</h2>
+        <p class="font-body text-gray-600 text-lg">A look at the athletes, coaches and milestones that make our sports community.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {moments.map((moment) => (
+          <figure class="card overflow-hidden reveal">
+            <img
+              src={moment.src}
+              alt={moment.alt}
+              class="w-full aspect-[4/3] object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="font-display font-bold text-xl text-navy px-5 py-4">{moment.title}</figcaption>
+          </figure>
         ))}
       </div>
     </div>
