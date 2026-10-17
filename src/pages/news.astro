@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const updates = [
+  {
+    category: 'Tournament',
+    title: 'Looking ahead to the Charles Michael Taekwondo Open 2027',
+    text: 'We are preparing for the 2027 open. Event dates, venue, registration details, and competition information will be published after they are confirmed.',
+    href: '/open-2027',
+    link: 'Explore the Open',
+  },
+  {
+    category: 'Our journey',
+    title: 'Building a pathway, one event at a time',
+    text: 'Our long-term ambition is to work with the Kenya Taekwondo Federation toward international recognition. Recognition is not guaranteed; we will share confirmed milestones as the work progresses.',
+    href: '/pathway',
+    link: 'Read about the pathway',
+  },
+  {
+    category: 'Training',
+    title: 'Find the right programme for you',
+    text: 'From junior and adult training to school partnerships, discover the programmes available through Charles Michael Sports Hub.',
+    href: '/programmes',
+    link: 'View programmes',
+  },
+];
+---
+
+<BaseLayout
+  title="News & Updates"
+  description="News and confirmed updates from Charles Michael Sports Hub in Limuru, Kenya."
+>
+  <section class="bg-navy text-white py-20 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="section-subtitle text-red-brand">From the Hub</p>
+      <h1 class="font-display font-black text-6xl md:text-8xl leading-none mb-6">News &amp; Updates</h1>
+      <p class="font-body text-blue-100 text-xl max-w-2xl leading-relaxed">
+        Follow our training, tournaments, and the work behind the Charles Michael Taekwondo Open.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-bluegrey">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10 reveal">
+        <h2 class="section-title mb-3">Latest from CMSH</h2>
+        <p class="font-body text-gray-600 text-lg">
+          Confirmed news will be added here. The updates below point to current information on our site; no event date, venue, or registration opening is announced unless stated on the event page.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {updates.map((update) => (
+          <article class="card p-7 flex flex-col reveal">
+            <p class="section-subtitle !text-sm">{update.category}</p>
+            <h3 class="font-display font-bold text-3xl text-navy mb-3">{update.title}</h3>
+            <p class="font-body text-gray-600 leading-relaxed flex-1">{update.text}</p>
+            <a href={update.href} class="font-body font-semibold text-red-brand hover:underline mt-6">
+              {update.link} →
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+      <h2 class="font-display font-bold text-3xl text-navy mb-3">Have a question?</h2>
+      <p class="font-body text-gray-600 mb-6">Get in touch about training, partnerships, or the tournament.</p>
+      <a href="/contact" class="btn-primary">Contact the Hub</a>
+    </div>
+  </section>
+</BaseLayout>

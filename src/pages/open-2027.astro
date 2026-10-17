@@ -1,0 +1,628 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    name: "Charles Michael Taekwondo Open 2027",
+    sport: "Taekwondo",
+    startDate: "2027-02-01",
+    location: {
+        "@type": "Place",
+        name: "[PLACEHOLDER: Venue Name]",
+        address: {
+            "@type": "PostalAddress",
+            addressLocality: "Limuru",
+            addressRegion: "Kiambu County",
+            addressCountry: "KE",
+        },
+    },
+    organizer: {
+        "@type": "SportsOrganization",
+        name: "Charles Michael Sports Hub",
+    },
+    description:
+        "Kenya's premier taekwondo open tournament for junior and senior athletes, held in Limuru under World Taekwondo rules.",
+};
+---
+
+<BaseLayout
+    title="Charles Michael Taekwondo Open 2027"
+    description="Enter the Charles Michael Taekwondo Open 2027 — Kenya's newest open taekwondo tournament for junior and senior athletes, held in Limuru, Kiambu County."
+    schema={schema}
+>
+    <!-- Hero -->
+    <section
+        class="relative bg-navy text-white overflow-hidden"
+        style="clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); padding-bottom: 8rem;"
+    >
+        <div
+            class="absolute inset-0 opacity-10"
+            style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 20px 20px;"
+        >
+        </div>
+        <div class="absolute top-0 left-0 w-2 h-full bg-red-brand"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+            <p
+                class="font-display font-semibold text-red-brand text-xl uppercase tracking-widest mb-4"
+            >
+                Limuru, Kenya
+            </p>
+            <h1
+                class="font-display font-black text-6xl sm:text-8xl leading-none mb-4"
+            >
+                Charles Michael<br />Taekwondo Open
+            </h1>
+            <p class="font-display font-bold text-4xl text-blue-200 mb-8">
+                2027
+            </p>
+            <p class="font-body text-blue-100 text-xl max-w-2xl mx-auto mb-10">
+                Kenya's newest international-standard open taekwondo tournament.
+                Open to junior and senior athletes, clubs and dojangs across
+                Kenya.
+            </p>
+
+            <!-- Countdown -->
+            <div
+                class="flex gap-6 justify-center text-center mb-10"
+                id="open-countdown"
+            >
+                {
+                    ["Days", "Hours", "Mins", "Secs"].map((unit, i) => (
+                        <div class="bg-white/10 backdrop-blur rounded-lg px-6 py-5 min-w-[80px]">
+                            <span
+                                id={`oc-${unit.toLowerCase()}`}
+                                class="font-display font-black text-5xl sm:text-6xl block leading-none"
+                            >
+                                –
+                            </span>
+                            <span class="font-body text-xs uppercase tracking-widest text-blue-200">
+                                {unit}
+                            </span>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact#open" class="btn-primary text-xl px-8 py-4"
+                    >Register Interest</a
+                >
+                <a href="#at-a-glance" class="btn-secondary text-xl px-8 py-4"
+                    >View Details ↓</a
+                >
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const d = new Date("2027-02-01T08:00:00+03:00");
+        function tick() {
+            const diff = d.getTime() - Date.now();
+            if (diff <= 0) return;
+            const pad = (n: number) => String(n).padStart(2, "0");
+            const el = (id: string) => document.getElementById(id);
+            const e = el("oc-days");
+            if (e) e.textContent = pad(Math.floor(diff / 86400000));
+            const h = el("oc-hours");
+            if (h) h.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+            const m = el("oc-mins");
+            if (m) m.textContent = pad(Math.floor((diff % 3600000) / 60000));
+            const s = el("oc-secs");
+            if (s) s.textContent = pad(Math.floor((diff % 60000) / 1000));
+        }
+        tick();
+        setInterval(tick, 1000);
+    </script>
+
+    <!-- At a Glance -->
+    <section id="at-a-glance" class="py-20 bg-bluegrey">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <p class="section-subtitle">Quick Facts</p>
+                <h2 class="section-title">At a Glance</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                {
+                    [
+                        {
+                            label: "Event Date",
+                            value: "[PLACEHOLDER: Date, February 2027]",
+                            icon: "📅",
+                        },
+                        {
+                            label: "Venue",
+                            value: "[PLACEHOLDER: Indoor venue name], Limuru",
+                            icon: "📍",
+                        },
+                        {
+                            label: "Format",
+                            value: "World Taekwondo Rules",
+                            icon: "📖",
+                        },
+                        {
+                            label: "Athletes Expected",
+                            value: "100+ junior & senior",
+                            icon: "🥋",
+                        },
+                        {
+                            label: "Spectators Expected",
+                            value: "1,000+",
+                            icon: "👥",
+                        },
+                        {
+                            label: "Events",
+                            value: "Kyorugi (sparring) & Poomsae (patterns)",
+                            icon: "🏆",
+                        },
+                    ].map((item) => (
+                        <div class="card p-7 flex items-start gap-4 reveal">
+                            <span class="text-3xl flex-shrink-0">
+                                {item.icon}
+                            </span>
+                            <div>
+                                <p class="font-body text-xs text-gray-400 uppercase tracking-wider mb-1">
+                                    {item.label}
+                                </p>
+                                <p class="font-display font-bold text-xl text-navy">
+                                    {item.value}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <!-- Add to Calendar -->
+            <div class="text-center reveal">
+                <a
+                    href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Charles Michael Taekwondo Open 2027%0ADTSTART:20270201T080000%0ADTEND:20270201T180000%0ALOCATION:Limuru%2C Kiambu County%2C Kenya%0AEND:VEVENT%0AEND:VCALENDAR"
+                    download="cmsh-open-2027.ics"
+                    class="btn-navy text-lg px-7 py-3 mr-4"
+                >
+                    📅 Add to Calendar
+                </a>
+                <a
+                    href={`https://wa.me/?text=${encodeURIComponent("Charles Michael Taekwondo Open 2027 — February 2027, Limuru, Kenya. Details: https://charlesmichaelsportshub.co.ke/open-2027")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-primary text-lg px-7 py-3"
+                >
+                    📲 Share on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divisions & Categories -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <p class="section-subtitle">Competition Structure</p>
+                <h2 class="section-title">Divisions & Categories</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10 reveal">
+                <div class="card p-8">
+                    <h3 class="font-display font-bold text-3xl text-navy mb-4">
+                        Age Divisions
+                    </h3>
+                    <p class="font-body text-gray-500 text-sm mb-4 italic">
+                        Exact divisions to be set in consultation with KTF.
+                        Below is the planned framework.
+                    </p>
+                    <ul class="space-y-3">
+                        {
+                            [
+                                "Cadets (ages 12–14)",
+                                "Juniors (ages 15–17)",
+                                "Under-21",
+                                "Seniors (18+)",
+                            ].map((d) => (
+                                <li class="flex items-center gap-3 font-body text-gray-700 text-lg">
+                                    <span class="w-2 h-2 rounded-full bg-red-brand flex-shrink-0" />
+                                    {d}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                    <p class="font-body text-xs text-gray-400 mt-4">
+                        [PLACEHOLDER: Confirm exact age brackets with KTF
+                        bulletin]
+                    </p>
+                </div>
+                <div class="card p-8">
+                    <h3 class="font-display font-bold text-3xl text-navy mb-4">
+                        Weight Categories
+                    </h3>
+                    <p class="font-body text-gray-500 text-sm mb-4 italic">
+                        [PLACEHOLDER: Weight categories to be published in the
+                        official bulletin]
+                    </p>
+                    <div class="bg-bluegrey rounded-lg p-5 text-center">
+                        <p class="font-display font-bold text-xl text-navy">
+                            Full weight categories will be published in the
+                            official bulletin.
+                        </p>
+                        <p class="font-body text-gray-500 text-sm mt-2">
+                            Download the bulletin below once available.
+                        </p>
+                    </div>
+                    <a
+                        href="#bulletin"
+                        class="btn-navy mt-6 text-base px-5 py-2.5 w-full justify-center"
+                        >📄 Get the Bulletin</a
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules & Equipment -->
+    <section class="py-20 bg-bluegrey">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <p class="section-subtitle">How We Compete</p>
+                <h2 class="section-title">Rules & Equipment</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="reveal">
+                    <h3 class="font-display font-bold text-3xl text-navy mb-6">
+                        Competition Rules
+                    </h3>
+                    <ul class="space-y-4">
+                        {
+                            [
+                                "World Taekwondo (WT) competition rules apply throughout",
+                                "Electronic scoring systems used for kyorugi",
+                                "Certified referees and judges officiate all bouts",
+                                "Protests handled per WT protest procedures",
+                                "Anti-doping policies as per KTF guidelines",
+                            ].map((rule) => (
+                                <li class="flex items-start gap-3 font-body text-gray-700">
+                                    <span class="text-red-brand font-bold flex-shrink-0 mt-0.5">
+                                        ✓
+                                    </span>
+                                    {rule}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+                <div class="reveal">
+                    <h3 class="font-display font-bold text-3xl text-navy mb-6">
+                        Required Equipment
+                    </h3>
+                    <ul class="space-y-4">
+                        {
+                            [
+                                "Approved WT dobok (uniform)",
+                                "WT-approved hogu (trunk protector)",
+                                "Head guard, groin guard, forearm and shin guards",
+                                "Mouth guard",
+                                "Electronic scoring sensors (rental available — [PLACEHOLDER: fee])",
+                            ].map((eq) => (
+                                <li class="flex items-start gap-3 font-body text-gray-700">
+                                    <span class="text-navy font-bold flex-shrink-0 mt-0.5">
+                                        →
+                                    </span>
+                                    {eq}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-12 reveal">
+                <p class="section-subtitle">Programme of Events</p>
+                <h2 class="section-title">Schedule</h2>
+            </div>
+            <div class="card p-10 text-center reveal">
+                <div class="text-6xl mb-4">🗓️</div>
+                <p class="font-display font-bold text-3xl text-navy mb-4">
+                    [PLACEHOLDER: Full schedule to be published]
+                </p>
+                <p class="font-body text-gray-600 text-lg leading-relaxed mb-6">
+                    The detailed day schedule — including weigh-in times, draw
+                    ceremony, kyorugi rounds and poomsae timings — will be
+                    published in the official event bulletin. Register your
+                    interest below to be notified.
+                </p>
+                <a href="/contact#open" class="btn-primary text-xl px-8 py-4"
+                    >Register Interest & Get Notified →</a
+                >
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Register -->
+    <section
+        class="py-20 bg-navy text-white"
+        style="clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%);"
+    >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <p class="section-subtitle text-red-brand">Enter the Open</p>
+                <h2 class="font-display font-black text-6xl text-white">
+                    How to Register
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                {
+                    [
+                        {
+                            role: "Athletes",
+                            icon: "🥋",
+                            steps: [
+                                "Complete the online registration form (opens [PLACEHOLDER: date])",
+                                "Pay the entry fee via M-Pesa: [PLACEHOLDER: Paybill/Till number]",
+                                "Upload proof of payment and KTF licence (if applicable)",
+                                "Receive confirmation email with your athlete number",
+                            ],
+                        },
+                        {
+                            role: "Clubs & Coaches",
+                            icon: "🏫",
+                            steps: [
+                                "Team captain submits a team entry form",
+                                "List all athletes with weight class and division",
+                                "Pay combined entry fee",
+                                "Coaches must bring valid coaching credentials to accreditation",
+                            ],
+                        },
+                        {
+                            role: "Officials",
+                            icon: "📋",
+                            steps: [
+                                "KTF-certified referees and judges invited by the organiser",
+                                "Contact us to express interest if you hold KTF certification",
+                                "Accommodation and transport support: [PLACEHOLDER: details]",
+                                "Accreditation at venue: [PLACEHOLDER: date/time]",
+                            ],
+                        },
+                    ].map((group, i) => (
+                        <div
+                            class="bg-white/10 backdrop-blur rounded-lg p-8 reveal"
+                            style={`transition-delay: ${i * 100}ms`}
+                        >
+                            <div class="text-4xl mb-3">{group.icon}</div>
+                            <h3 class="font-display font-bold text-3xl text-white mb-5">
+                                {group.role}
+                            </h3>
+                            <ol class="space-y-3 list-none">
+                                {group.steps.map((step, j) => (
+                                    <li class="flex items-start gap-3 font-body text-blue-100 text-sm">
+                                        <span class="flex-shrink-0 bg-red-brand text-white font-bold text-xs w-5 h-5 rounded-full flex items-center justify-center mt-0.5">
+                                            {j + 1}
+                                        </span>
+                                        {step}
+                                    </li>
+                                ))}
+                            </ol>
+                        </div>
+                    ))
+                }
+            </div>
+            <div class="text-center mt-12 reveal">
+                <p class="font-body text-blue-200 mb-6">
+                    Full registration opens [PLACEHOLDER: date]. Entry fees:
+                    [PLACEHOLDER: KES amount]
+                </p>
+                <a href="/contact#open" class="btn-primary text-xl px-10 py-4"
+                    >Register Interest Now →</a
+                >
+            </div>
+        </div>
+    </section>
+
+    <!-- Spectator Info -->
+    <section class="py-20 bg-bluegrey">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-start"
+        >
+            <div class="reveal">
+                <p class="section-subtitle">Come Watch</p>
+                <h2 class="section-title mb-6">For Spectators</h2>
+                <div class="space-y-5">
+                    {
+                        [
+                            {
+                                label: "Tickets",
+                                value: "[PLACEHOLDER: Ticket price and sale method]",
+                            },
+                            {
+                                label: "Venue",
+                                value: "[PLACEHOLDER: Venue name and address], Limuru, Kiambu County",
+                            },
+                            {
+                                label: "Parking",
+                                value: "[PLACEHOLDER: Parking details]",
+                            },
+                            {
+                                label: "Directions",
+                                value: "[PLACEHOLDER: Landmarks and matatu routes from Nairobi and Limuru town]",
+                            },
+                            {
+                                label: "Accessibility",
+                                value: "[PLACEHOLDER: Wheelchair and family accessibility details]",
+                            },
+                            {
+                                label: "Food & Drink",
+                                value: "Catering available on site. [PLACEHOLDER: details]",
+                            },
+                        ].map((item) => (
+                            <div class="flex gap-4 items-start font-body">
+                                <span class="font-bold text-navy text-sm w-28 flex-shrink-0 mt-0.5">
+                                    {item.label}
+                                </span>
+                                <span class="text-gray-600">{item.value}</span>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+            <div class="reveal">
+                <div class="card p-8 bg-white">
+                    <h3 class="font-display font-bold text-3xl text-navy mb-4">
+                        Map & Directions
+                    </h3>
+                    <div
+                        class="placeholder-img aspect-video rounded-lg mb-4 flex-col gap-2"
+                    >
+                        <div class="text-4xl mb-2">🗺️</div>
+                        <p class="font-body text-sm">
+                            [PLACEHOLDER: Embed Google Maps iframe for venue]
+                        </p>
+                    </div>
+                    <a
+                        href="https://maps.google.com/?q=Limuru+Kenya"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-navy text-base px-5 py-2.5 w-full justify-center"
+                    >
+                        Open in Google Maps →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-12 reveal">
+                <p class="section-subtitle">Our Partners</p>
+                <h2 class="section-title">Event Sponsors</h2>
+            </div>
+            <div
+                class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-10 reveal"
+            >
+                {
+                    Array(4)
+                        .fill(null)
+                        .map((_, i) => (
+                            <div class="placeholder-img aspect-video rounded-lg border border-gray-200 p-4 flex-col gap-1">
+                                <div class="text-2xl mb-1">🏢</div>
+                                <p class="font-body text-xs">
+                                    [PLACEHOLDER: Sponsor {i + 1} logo]
+                                </p>
+                            </div>
+                        ))
+                }
+            </div>
+            <a href="/sponsors" class="btn-navy text-lg px-8 py-3"
+                >Become a Sponsor →</a
+            >
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-bluegrey">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <p class="section-subtitle">Questions About the Open</p>
+                <h2 class="section-title">Open FAQ</h2>
+            </div>
+            <div class="space-y-4">
+                {
+                    [
+                        {
+                            q: "Do I need a KTF licence to compete?",
+                            a: "A KTF licence number is optional for Phase 1 registrations. Full eligibility rules will be published in the event bulletin closer to the date.",
+                        },
+                        {
+                            q: "Can beginners (white belts) compete?",
+                            a: "Yes. We plan novice and colour-belt divisions alongside black belt divisions. Full division breakdown in the bulletin.",
+                        },
+                        {
+                            q: "Will there be poomsae alongside kyorugi?",
+                            a: "Yes, both are planned. Separate registration per event type.",
+                        },
+                        {
+                            q: "How will results be published?",
+                            a: "Live results will be displayed at the venue. Final results and medal tables will be published on this website within 48 hours of the event.",
+                        },
+                        {
+                            q: "What is the refund policy?",
+                            a: "[PLACEHOLDER: Refund policy — to be published in the bulletin]",
+                        },
+                    ].map((item, i) => (
+                        <div
+                            class="card reveal"
+                            style={`transition-delay: ${i * 60}ms`}
+                        >
+                            <button
+                                class="w-full text-left px-6 py-5 flex justify-between items-center font-display font-bold text-xl text-navy"
+                                data-faq-btn
+                                aria-expanded="false"
+                            >
+                                <span>{item.q}</span>
+                                <svg
+                                    class="w-5 h-5 flex-shrink-0 transition-transform duration-200 text-red-brand"
+                                    data-faq-arrow
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2.5"
+                                        d="M19 9l-7 7-7-7"
+                                    />
+                                </svg>
+                            </button>
+                            <div
+                                class="hidden px-6 pb-5 font-body text-gray-600 text-base leading-relaxed"
+                                data-faq-body
+                            >
+                                {item.a}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Bulletin download -->
+    <section id="bulletin" class="py-14 bg-navy text-white text-center">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-5xl mb-4">📄</div>
+            <h2 class="font-display font-bold text-5xl mb-4">
+                Official Bulletin
+            </h2>
+            <p class="font-body text-blue-100 text-lg mb-8">
+                The full event bulletin — including divisions, weight
+                categories, schedule, rules and fees — will be available for
+                download here. Register your interest to be notified the moment
+                it is published.
+            </p>
+            <a href="/contact#open" class="btn-secondary text-xl px-8 py-4"
+                >Notify Me When Published →</a
+            >
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll("[data-faq-btn]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const body = btn.nextElementSibling as HTMLElement;
+                const arrow = btn.querySelector(
+                    "[data-faq-arrow]",
+                ) as HTMLElement;
+                const expanded = btn.getAttribute("aria-expanded") === "true";
+                btn.setAttribute("aria-expanded", String(!expanded));
+                body?.classList.toggle("hidden");
+                if (arrow)
+                    arrow.style.transform = expanded ? "" : "rotate(180deg)";
+            });
+        });
+    </script>
+</BaseLayout>
