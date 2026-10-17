@@ -103,7 +103,7 @@ const schema = {
     </section>
 
     <script>
-        const d = new Date("2027-04-10T08:00:00+03:00");
+        const d = new Date("2027-04-10T00:00:00+03:00");
         function tick() {
             const diff = d.getTime() - Date.now();
             if (diff <= 0) return;
@@ -183,7 +183,7 @@ const schema = {
             <!-- Add to Calendar -->
             <div class="text-center reveal">
                 <a
-                    href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Mount%20Kenya%20International%20Taekwondo%20Open%20Tournament%202027%0ADTSTART;TZID=Africa/Nairobi:20270410T080000%0ADTEND;TZID=Africa/Nairobi:20270411T180000%0ALOCATION:Limuru%2C%20Kiambu%20County%2C%20Kenya%0AEND:VEVENT%0AEND:VCALENDAR"
+                    href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Mount%20Kenya%20International%20Taekwondo%20Open%20Tournament%202027%0ADTSTART%3BVALUE=DATE:20270410%0ADTEND%3BVALUE=DATE:20270412%0ALOCATION:Limuru%2C%20Kiambu%20County%2C%20Kenya%0AEND:VEVENT%0AEND:VCALENDAR"
                     download="mount-kenya-international-taekwondo-open-2027.ics"
                     class="btn-navy text-lg px-7 py-3 mr-4"
                 >
