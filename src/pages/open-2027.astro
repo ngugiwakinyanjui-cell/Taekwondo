@@ -4,9 +4,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const schema = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
-    name: "Charles Michael Taekwondo Open 2027",
+    name: "Mount Kenya International Taekwondo Open Tournament 2027",
     sport: "Taekwondo",
-    startDate: "2027-02-01",
+    startDate: "2027-04-10",
+    endDate: "2027-04-11",
     location: {
         "@type": "Place",
         name: "[PLACEHOLDER: Venue Name]",
@@ -22,13 +23,13 @@ const schema = {
         name: "Charles Michael Sports Hub",
     },
     description:
-        "Kenya's premier taekwondo open tournament for junior and senior athletes, held in Limuru under World Taekwondo rules.",
+        "A two-day international taekwondo open tournament for junior and senior athletes, held Saturday 10 and Sunday 11 April 2027 in Limuru under World Taekwondo rules.",
 };
 ---
 
 <BaseLayout
-    title="Charles Michael Taekwondo Open 2027"
-    description="Enter the Charles Michael Taekwondo Open 2027 — Kenya's newest open taekwondo tournament for junior and senior athletes, held in Limuru, Kiambu County."
+    title="Mount Kenya International Taekwondo Open Tournament 2027"
+    description="Join the two-day Mount Kenya International Taekwondo Open Tournament on Saturday 10 and Sunday 11 April 2027 in Limuru, Kiambu County."
     schema={schema}
 >
     <!-- Hero -->
@@ -51,16 +52,22 @@ const schema = {
             <h1
                 class="font-display font-black text-6xl sm:text-8xl leading-none mb-4"
             >
-                Charles Michael<br />Taekwondo Open
+                Mount Kenya International<br />Taekwondo Open Tournament
             </h1>
             <p class="font-display font-bold text-4xl text-blue-200 mb-8">
-                2027
+                Saturday 10 – Sunday 11 April 2027
             </p>
             <p class="font-body text-blue-100 text-xl max-w-2xl mx-auto mb-10">
-                Kenya's newest international-standard open taekwondo tournament.
-                Open to junior and senior athletes, clubs and dojangs across
-                Kenya.
+                A two-day international taekwondo tournament in Limuru, Kenya.
+                Open to junior and senior athletes, clubs and dojangs.
             </p>
+            <img
+                src="/images/certificate-presentation.webp"
+                alt="Athletes and coaches at a taekwondo award presentation"
+                class="w-full max-w-4xl aspect-[16/7] object-cover rounded-lg border-4 border-white/20 shadow-2xl mx-auto mb-10"
+                fetchpriority="high"
+                decoding="async"
+            />
 
             <!-- Countdown -->
             <div
@@ -96,7 +103,7 @@ const schema = {
     </section>
 
     <script>
-        const d = new Date("2027-02-01T08:00:00+03:00");
+        const d = new Date("2027-04-10T08:00:00+03:00");
         function tick() {
             const diff = d.getTime() - Date.now();
             if (diff <= 0) return;
@@ -127,7 +134,7 @@ const schema = {
                     [
                         {
                             label: "Event Date",
-                            value: "[PLACEHOLDER: Date, February 2027]",
+                            value: "Saturday 10 – Sunday 11 April 2027 (two days)",
                             icon: "📅",
                         },
                         {
@@ -176,14 +183,14 @@ const schema = {
             <!-- Add to Calendar -->
             <div class="text-center reveal">
                 <a
-                    href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Charles Michael Taekwondo Open 2027%0ADTSTART:20270201T080000%0ADTEND:20270201T180000%0ALOCATION:Limuru%2C Kiambu County%2C Kenya%0AEND:VEVENT%0AEND:VCALENDAR"
-                    download="cmsh-open-2027.ics"
+                    href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Mount%20Kenya%20International%20Taekwondo%20Open%20Tournament%202027%0ADTSTART;TZID=Africa/Nairobi:20270410T080000%0ADTEND;TZID=Africa/Nairobi:20270411T180000%0ALOCATION:Limuru%2C%20Kiambu%20County%2C%20Kenya%0AEND:VEVENT%0AEND:VCALENDAR"
+                    download="mount-kenya-international-taekwondo-open-2027.ics"
                     class="btn-navy text-lg px-7 py-3 mr-4"
                 >
                     📅 Add to Calendar
                 </a>
                 <a
-                    href={`https://wa.me/?text=${encodeURIComponent("Charles Michael Taekwondo Open 2027 — February 2027, Limuru, Kenya. Details: https://charlesmichaelsportshub.co.ke/open-2027")}`}
+                    href={`https://wa.me/254754151315?text=${encodeURIComponent("Mount Kenya International Taekwondo Open Tournament 2027 — Saturday 10 and Sunday 11 April 2027, Limuru, Kenya. Details: https://charlesmichaelsportshub.co.ke/open-2027")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn-primary text-lg px-7 py-3"

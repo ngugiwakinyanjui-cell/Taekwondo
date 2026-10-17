@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="About Us"
-  description="Learn about Charles Michael Sports Hub — our story, mission, founder Michael Charles James Karuga, and our roadmap to international taekwondo."
+  description="Learn about Charles Michael Sports Hub in Limuru — our story, sports vision, founder Michael Charles James Karuga, and taekwondo flagship tournament."
 >
 
   <!-- Page Hero -->
@@ -13,7 +13,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="section-subtitle text-red-brand mb-3">Our Story</p>
       <h1 class="font-display font-black text-7xl md:text-8xl text-white leading-none mb-6">About CMSH</h1>
       <p class="font-body text-blue-100 text-xl max-w-2xl leading-relaxed">
-        A taekwondo hub built on discipline, pride and a clear vision for Kenyan sport.
+        A sports hub built on discipline, pride and a clear vision for Kenyan athletes.
       </p>
     </div>
   </section>
@@ -25,7 +25,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="section-subtitle">Our Mission</p>
         <h2 class="section-title mb-6">Built for the Long Game</h2>
         <p class="font-body text-gray-600 text-lg leading-relaxed mb-5">
-          Charles Michael Sports Hub was founded in Limuru to fill a gap: high-quality, structured taekwondo coaching in Kiambu County, delivered under the same rules and standards that govern competitions from local tournaments all the way to the Olympic Games.
+          Charles Michael Sports Hub was founded in Limuru to create more opportunities for people to train, compete and grow through sport. Taekwondo is our flagship programme, delivered under the same rules and standards that govern competitions from local tournaments all the way to the Olympic Games.
         </p>
         <p class="font-body text-gray-600 text-lg leading-relaxed mb-5">
           We believe sport changes lives. Not because of trophies alone, but because of what happens in the dojang every week — the discipline, the respect, the persistence. We train athletes. We also build people.
@@ -55,11 +55,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="py-20 bg-bluegrey">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-12 items-start">
       <div class="reveal lg:col-span-1">
-        <div class="placeholder-img aspect-square rounded-lg shadow-xl border-4 border-red-brand/30 p-10 text-center flex-col gap-3">
-          <div class="text-7xl mb-4">👤</div>
-          <p class="font-display font-bold text-navy">[PLACEHOLDER: Founder portrait]</p>
-          <p class="text-xs text-gray-500">Professional headshot, formal or in training kit</p>
-        </div>
+        <img
+          src="/images/founder-black-belt.webp"
+          alt="Black-belt athlete in a taekwondo uniform"
+          class="w-full aspect-square object-cover object-top rounded-lg shadow-xl border-4 border-red-brand/30"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div class="reveal lg:col-span-2">
         <p class="section-subtitle">The Founder</p>
@@ -132,7 +134,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           },
           {
             stage: '02', title: 'Prove', status: 'Near term',
-            text: 'Run the Charles Michael Taekwondo Open 2027. Demonstrate event management capability. Build relationships with KTF, coaches and clubs across Kenya.',
+            text: 'Host the Mount Kenya International Taekwondo Open Tournament, demonstrate event management capability, and build relationships with KTF, coaches and clubs across Kenya.',
             current: false,
           },
           {

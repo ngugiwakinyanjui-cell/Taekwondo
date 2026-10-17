@@ -17,8 +17,8 @@ const schema = {
     },
     {
       "@type": "Question",
-      "name": "Is the Charles Michael Taekwondo Open open to all clubs?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Open is open to athletes from all registered clubs and dojangs in Kenya. Divisions will cover all belt levels and age categories."}
+      "name": "Is the Mount Kenya International Taekwondo Open Tournament open to all clubs?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. The tournament is open to athletes from all registered clubs and dojangs in Kenya. Divisions will cover all belt levels and age categories."}
     },
     {
       "@type": "Question",
@@ -31,7 +31,7 @@ const schema = {
 
 <BaseLayout
   title="Home"
-  description="Charles Michael Sports Hub — Taekwondo classes for juniors and seniors in Limuru, Kiambu County. Home of the Charles Michael Taekwondo Open 2027."
+  description="Charles Michael Sports Hub is Kenya's newest sports hub in Limuru, Kiambu County, offering taekwondo training and hosting the Mount Kenya International Taekwondo Open Tournament."
   schema={schema}
 >
 
@@ -53,7 +53,7 @@ const schema = {
           with Pride.
         </h1>
         <p class="font-body text-blue-100 text-xl leading-relaxed mb-10 max-w-xl">
-          Kenya's newest taekwondo hub, based in Limuru. We build disciplined, confident athletes — from first kick to the competition mat.
+          Kenya's newest sports hub, based in Limuru. We create opportunities for athletes to train, compete and grow, with taekwondo at the heart of our flagship programme.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="/contact#trial" class="btn-primary text-xl px-8 py-4">
@@ -65,22 +65,23 @@ const schema = {
         </div>
       </div>
 
-      <!-- Placeholder image -->
-      <div class="hidden lg:flex justify-center">
-        <div class="placeholder-img w-full max-w-md aspect-[3/4] rounded-lg shadow-2xl border-4 border-red-brand/30 text-center p-8 flex-col gap-3">
-          <div class="text-6xl mb-4">🥋</div>
-          <p class="font-display font-bold text-navy text-xl">[PLACEHOLDER: Hero athlete photo]</p>
-          <p class="text-sm">Replace with a high-quality action shot of an athlete mid-kick or at competition</p>
-        </div>
+      <div class="hidden lg:block">
+        <img
+          src="/images/training-team-wide.webp"
+          alt="Taekwondo athletes training together at the Limuru sports hub"
+          class="w-full aspect-[4/3] object-cover rounded-lg shadow-2xl border-4 border-red-brand/30"
+          fetchpriority="high"
+          decoding="async"
+        />
       </div>
     </div>
   </section>
 
   <!-- ═══ COUNTDOWN STRIP ═══ -->
-  <section class="bg-red-brand text-white py-6" aria-label="Countdown to Charles Michael Taekwondo Open 2027">
+  <section class="bg-red-brand text-white py-6" aria-label="Countdown to Mount Kenya International Taekwondo Open Tournament">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="font-display font-bold text-2xl tracking-wide uppercase text-center sm:text-left">
-        Charles Michael Taekwondo Open 2027
+        Mount Kenya International Taekwondo Open Tournament
       </p>
       <div class="flex gap-6 text-center" id="countdown-display">
         <div>
@@ -110,8 +111,7 @@ const schema = {
   </section>
 
   <script>
-    // Target: February 2027 — exact date TBD, defaulting to Feb 1
-    const eventDate = new Date('2027-02-01T08:00:00+03:00');
+    const eventDate = new Date('2027-04-10T08:00:00+03:00');
     function tick() {
       const now = new Date();
       const diff = eventDate.getTime() - now.getTime();
@@ -147,9 +147,9 @@ const schema = {
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
           { icon: '🥋', title: 'Train', text: 'Structured coaching under World Taekwondo rules. Juniors (8–17) and seniors. Every level welcome.' },
-          { icon: '🏆', title: 'Compete', text: 'Host and enter sanctioned tournaments. The Charles Michael Open 2027 is our flagship event.' },
+          { icon: '🏆', title: 'Compete', text: 'Host and enter sporting competitions. The Mount Kenya International Taekwondo Open Tournament is our flagship event.' },
           { icon: '🎖️', title: 'Certify', text: 'Progress through belt grades at formal promotion tests. Earn recognition your CV will carry.' },
-          { icon: '🌍', title: 'Host', text: 'Build events that put Kenyan taekwondo on the international stage, working with KTF toward a recognised open.' },
+          { icon: '🌍', title: 'Host', text: 'Bring athletes and communities together through well-run sporting events, starting with our international taekwondo open.' },
         ].map((p, i) => (
           <div class="card p-8 text-center reveal" style={`transition-delay: ${i * 100}ms`}>
             <div class="text-5xl mb-4">{p.icon}</div>
@@ -165,17 +165,19 @@ const schema = {
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
       <div class="reveal">
-        <div class="placeholder-img w-full aspect-square max-w-sm mx-auto rounded-lg shadow-xl border-l-8 border-red-brand p-10 text-center flex-col gap-3">
-          <div class="text-6xl mb-4">👤</div>
-          <p class="font-display font-bold text-navy text-lg">[PLACEHOLDER: Founder portrait]</p>
-          <p class="text-sm text-gray-500">Replace with a professional headshot of Michael Charles James Karuga</p>
-        </div>
+        <img
+          src="/images/founder-black-belt.webp"
+          alt="Taekwondo black-belt athlete standing in uniform"
+          class="w-full aspect-square max-w-sm mx-auto object-cover object-top rounded-lg shadow-xl border-l-8 border-red-brand"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div class="reveal">
         <p class="section-subtitle">Meet the Founder</p>
         <h2 class="section-title mb-5">Michael Charles<br/>James Karuga</h2>
         <p class="font-body text-gray-600 text-lg leading-relaxed mb-4">
-          Michael is a taekwondo black belt and a respected figure in Kenyan taekwondo. He founded Charles Michael Sports Hub with a clear mission: to give Kenyan athletes — especially juniors in Limuru and Kiambu County — a world-class taekwondo pathway, from beginner training to international competition.
+          Michael is a taekwondo black belt and a respected figure in Kenyan taekwondo. He founded Charles Michael Sports Hub to create more opportunities for Kenyan athletes — especially juniors in Limuru and Kiambu County — to train, compete and pursue their sporting ambitions.
         </p>
         <p class="font-body text-gray-600 text-lg leading-relaxed mb-8">
           Under his guidance, CMSH operates strictly under World Taekwondo rules, ensuring every athlete we train is prepared for any regional or international stage.
@@ -191,9 +193,10 @@ const schema = {
       <div class="reveal mb-10">
         <p class="section-subtitle text-red-brand">Flagship Event</p>
         <h2 class="font-display font-black text-6xl sm:text-7xl text-white leading-none">
-          Charles Michael<br/>Taekwondo Open
+          Mount Kenya International<br/>Taekwondo Open
         </h2>
-        <p class="font-display font-semibold text-3xl text-blue-200 mt-3">February 2027 · Limuru, Kenya</p>
+        <p class="font-display font-semibold text-3xl text-blue-200 mt-3">Saturday 10 – Sunday 11 April 2027 · Limuru, Kenya</p>
+        <p class="font-body text-blue-100 text-lg mt-3">Two days of international taekwondo competition.</p>
       </div>
       <div class="grid sm:grid-cols-3 gap-6 mb-12 reveal">
         {[
@@ -252,7 +255,7 @@ const schema = {
       <p class="section-subtitle">Sponsor the Open</p>
       <h2 class="section-title mb-5">Partner With Us</h2>
       <p class="font-body text-gray-600 text-lg max-w-2xl mx-auto mb-8">
-        The Charles Michael Taekwondo Open 2027 will draw athletes and families from across Kenya. Align your brand with discipline, ambition and community.
+        The Mount Kenya International Taekwondo Open Tournament will bring athletes and families together in Limuru. Align your brand with discipline, ambition and community.
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10">
         {[
@@ -281,7 +284,7 @@ const schema = {
         {[
           { q: 'What age can my child start taekwondo?', a: 'Our junior programme welcomes athletes aged 8 to 17. We assess each child individually and focus on safety, fitness and confidence first.' },
           { q: 'Do I need any experience to join?', a: 'No experience is needed. We welcome complete beginners at every class. Your first trial lesson is free.' },
-          { q: 'Is the Charles Michael Taekwondo Open open to all clubs?', a: 'Yes. The Open is open to athletes from all registered clubs and dojangs in Kenya. Divisions will cover all belt levels and age categories.' },
+          { q: 'Is the Mount Kenya International Taekwondo Open Tournament open to all clubs?', a: 'Yes. The tournament is open to athletes from all registered clubs and dojangs in Kenya. Divisions will cover all belt levels and age categories.' },
           { q: 'What equipment does my child need?', a: 'For the trial class, comfortable sports clothes are fine. Once you join, you will need a dobok (uniform) and basic protective gear. We can advise on where to buy these in Kenya.' },
           { q: 'Is there financial support available?', a: 'Yes. We hold a number of scholarship places for girls and for families who face financial barriers. Contact us to enquire in confidence.' },
         ].map((item, i) => (
