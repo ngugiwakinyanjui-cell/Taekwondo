@@ -20,7 +20,7 @@ const {
   schema,
 } = Astro.props;
 
-const siteUrl = 'https://charlesmichaelsportshub.co.ke';
+const siteUrl = 'https://www.charlesmsports.com';
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 ---
@@ -65,8 +65,8 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
         "@type": "SportsOrganization",
         "name": "Charles Michael Sports Hub",
         "sport": "Multiple sports, with taekwondo as the flagship programme",
-        "url": "https://charlesmichaelsportshub.co.ke",
-        "logo": "https://charlesmichaelsportshub.co.ke/images/club-logo.webp",
+        "url": "https://www.charlesmsports.com",
+        "logo": "https://www.charlesmsports.com/images/club-logo.webp",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Limuru",

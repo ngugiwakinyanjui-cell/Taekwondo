@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-    site: 'https://charlesmichaelsportshub.co.ke',
+    site: 'https://www.charlesmsports.com',
     integrations: [
         tailwind(),
         sitemap(),
