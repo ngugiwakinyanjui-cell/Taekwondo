@@ -80,9 +80,20 @@ const schema = {
   <!-- ═══ COUNTDOWN STRIP ═══ -->
   <section class="bg-red-brand text-white py-6" aria-label="Countdown to Mount Kenya International Taekwondo Open Tournament">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="font-display font-bold text-2xl tracking-wide uppercase text-center sm:text-left">
-        Mount Kenya International Taekwondo Open Tournament
-      </p>
+      <div class="flex items-center gap-4">
+        <img
+          src="/images/mount-kenya-open-logo.webp"
+          alt=""
+          width="80"
+          height="80"
+          class="w-16 h-16 object-contain rounded bg-white p-1"
+          loading="lazy"
+          decoding="async"
+        />
+        <p class="font-display font-bold text-2xl tracking-wide uppercase text-center sm:text-left">
+          Mount Kenya International Taekwondo Open Tournament
+        </p>
+      </div>
       <div class="flex gap-6 text-center" id="countdown-display">
         <div>
           <span id="cd-days" class="font-display font-black text-5xl block leading-none">–</span>
