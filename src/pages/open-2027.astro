@@ -213,7 +213,7 @@ const schema = {
     </section>
 
     <!-- Divisions & Categories -->
-    <section class="py-20 bg-white">
+    <section id="divisions" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14 reveal">
                 <p class="section-subtitle">Competition Structure</p>
@@ -225,16 +225,16 @@ const schema = {
                         Age Divisions
                     </h3>
                     <p class="font-body text-gray-500 text-sm mb-4 italic">
-                        Exact divisions to be set in consultation with KTF.
-                        Below is the planned framework.
+                        Planned age framework. Final birth-year cut-offs and
+                        age eligibility will be confirmed in the event regulations.
                     </p>
                     <ul class="space-y-3">
                         {
                             [
-                                "Cadets (ages 12–14)",
-                                "Juniors (ages 15–17)",
-                                "Under-21",
-                                "Seniors (18+)",
+                                "Cadets: 12–14 years",
+                                "Juniors: 15–17 years",
+                                "Under-21: under 21 years",
+                                "Seniors: 18 years and older",
                             ].map((d) => (
                                 <li class="flex items-center gap-3 font-body text-gray-700 text-lg">
                                     <span class="w-2 h-2 rounded-full bg-red-brand flex-shrink-0" />
@@ -243,32 +243,45 @@ const schema = {
                             ))
                         }
                     </ul>
-                    <p class="font-body text-xs text-gray-400 mt-4">
-                        [PLACEHOLDER: Confirm exact age brackets with KTF
-                        bulletin]
-                    </p>
                 </div>
                 <div class="card p-8">
                     <h3 class="font-display font-bold text-3xl text-navy mb-4">
                         Weight Categories
                     </h3>
-                    <p class="font-body text-gray-500 text-sm mb-4 italic">
-                        [PLACEHOLDER: Weight categories to be published in the
-                        official bulletin]
+                    <p class="font-body text-gray-500 text-sm mb-5">
+                        Planned weight classes (kg), subject to final technical
+                        confirmation. The published event regulations will take
+                        precedence.
                     </p>
-                    <div class="bg-bluegrey rounded-lg p-5 text-center">
-                        <p class="font-display font-bold text-xl text-navy">
-                            Full weight categories will be published in the
-                            official bulletin.
-                        </p>
-                        <p class="font-body text-gray-500 text-sm mt-2">
-                            Download the bulletin below once available.
-                        </p>
+                    <div class="grid sm:grid-cols-2 gap-4 font-body text-sm">
+                        {
+                            [
+                                ["Cadets — Male", "-33, -37, -41, -45, -49, -53, -57, -61, -65, +65 kg"],
+                                ["Cadets — Female", "-29, -33, -37, -41, -44, -47, -51, -55, -59, +59 kg"],
+                                ["Juniors — Male", "-45, -48, -51, -55, -59, -63, -68, -73, -78, +78 kg"],
+                                ["Juniors — Female", "-42, -44, -46, -49, -52, -55, -59, -63, -68, +68 kg"],
+                                ["Seniors — Male", "-54, -58, -63, -68, -74, -80, -87, +87 kg"],
+                                ["Seniors — Female", "-46, -49, -53, -57, -62, -67, -73, +73 kg"],
+                                ["Under-21", "Categories to be confirmed in the event regulations"],
+                            ].map(([division, categories]) => (
+                                <div class="rounded-lg bg-bluegrey p-4">
+                                    <h4 class="font-display font-bold text-navy mb-1">
+                                        {division}
+                                    </h4>
+                                    <p class="text-gray-600">{categories}</p>
+                                </div>
+                            ))
+                        }
                     </div>
+                    <p class="font-body text-xs text-gray-500 mt-5">
+                        Athletes must make the limit for their registered class.
+                        Final approved categories will be stated in the event regulations.
+                    </p>
                     <a
-                        href="#bulletin"
+                        href="/documents/mount-kenya-international-taekwondo-open-2027-bulletin.pdf"
+                        download
                         class="btn-navy mt-6 text-base px-5 py-2.5 w-full justify-center"
-                        >📄 Get the Bulletin</a
+                        >📄 Download Official Bulletin</a
                     >
                 </div>
             </div>
@@ -439,7 +452,7 @@ const schema = {
     </section>
 
     <!-- Spectator Info -->
-    <section class="py-20 bg-bluegrey">
+    <section id="spectators" class="py-20 bg-bluegrey">
         <div
             class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-start"
         >
@@ -451,7 +464,7 @@ const schema = {
                         [
                             {
                                 label: "Tickets",
-                                value: "[PLACEHOLDER: Ticket price and sale method]",
+                                value: "Free for all spectators.",
                             },
                             {
                                 label: "Venue",
@@ -459,19 +472,19 @@ const schema = {
                             },
                             {
                                 label: "Parking",
-                                value: "[PLACEHOLDER: Parking details]",
+                                value: "Ample parking available.",
                             },
                             {
                                 label: "Directions",
-                                value: "[PLACEHOLDER: Landmarks and matatu routes from Nairobi and Limuru town]",
+                                value: "Take matatu routes 115 or 114 to Limuru. By car, use the Nairobi–Nakuru Highway to Limuru Town.",
                             },
                             {
                                 label: "Accessibility",
-                                value: "[PLACEHOLDER: Wheelchair and family accessibility details]",
+                                value: "Wheelchair and family accessible.",
                             },
                             {
                                 label: "Food & Drink",
-                                value: "Catering available on site. [PLACEHOLDER: details]",
+                                value: "Catering available on site.",
                             },
                         ].map((item) => (
                             <div class="flex gap-4 items-start font-body">
@@ -617,13 +630,15 @@ const schema = {
                 Official Bulletin
             </h2>
             <p class="font-body text-blue-100 text-lg mb-8">
-                The full event bulletin — including divisions, weight
-                categories, schedule, rules and fees — will be available for
-                download here. Register your interest to be notified the moment
-                it is published.
+                Download the event bulletin for confirmed event details,
+                planned divisions and spectator information. Registration,
+                entry fees and the detailed schedule will be announced separately.
             </p>
-            <a href="/contact#open" class="btn-secondary text-xl px-8 py-4"
-                >Notify Me When Published →</a
+            <a
+                href="/documents/mount-kenya-international-taekwondo-open-2027-bulletin.pdf"
+                download
+                class="btn-secondary text-xl px-8 py-4"
+                >📄 Download Official Bulletin</a
             >
         </div>
     </section>
