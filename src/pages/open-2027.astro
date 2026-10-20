@@ -26,6 +26,62 @@ const schema = {
         "A two-day international taekwondo open tournament for junior and senior athletes, held Saturday 10 and Sunday 11 April 2027 in Limuru under World Taekwondo rules.",
     image: "https://www.charlesmsports.com/images/mount-kenya-open-logo-transparent.webp",
 };
+
+const provisionalSchedule = [
+    {
+        day: "Friday, 9 April 2027",
+        title: "Proposed pre-event accreditation",
+        note: "Administration and weigh-in only; this is not a third competition day. Venue availability and technical approval must be confirmed.",
+        rows: [
+            ["2:00–5:00 p.m.", "Team arrival, accreditation and document verification", "Club representatives, coaches and athletes"],
+            ["3:00–5:00 p.m.", "Proposed official weigh-in for Saturday Kyorugi divisions", "Cadet and Junior Kyorugi athletes"],
+            ["5:00–5:45 p.m.", "Team managers’ meeting and technical briefing", "Coaches, team managers and technical officials"],
+            ["From 6:00 p.m.", "Saturday draws and reporting instructions published", "All Saturday competitors"],
+        ],
+    },
+    {
+        day: "Saturday, 10 April 2027",
+        title: "Poomsae, Cadet and Junior Kyorugi",
+        note: "All times are proposed East Africa Time (EAT).",
+        rows: [
+            ["7:00–8:00 a.m.", "Venue opens; athlete arrival, accreditation collection and Poomsae check-in", "Athletes and coaches"],
+            ["7:30–8:00 a.m.", "Referees’ and officials’ briefing; competition-area and scoring-system checks", "Referees and officials"],
+            ["8:00–8:20 a.m.", "Coaches’ briefing and athlete assembly", "Coaches and athletes"],
+            ["8:20–8:45 a.m.", "Opening ceremony and welcome", "All participants"],
+            ["8:45–9:00 a.m.", "Final Poomsae call-up and competition preparation", "Poomsae competitors"],
+            ["9:00 a.m.–12:00 noon", "Poomsae competition — categories and order to be confirmed", "Poomsae competitors"],
+            ["12:00–12:30 p.m.", "Poomsae medal presentations", "Medal recipients"],
+            ["12:30–1:15 p.m.", "Lunch break and competition-area changeover", "All participants"],
+            ["1:15–3:15 p.m.", "Cadet and Junior Kyorugi — preliminary and quarter-final rounds, where applicable", "Cadet and Junior competitors"],
+            ["3:15–3:30 p.m.", "Scheduled break and timetable review", "All participants"],
+            ["3:30–5:00 p.m.", "Cadet and Junior Kyorugi — semi-finals and finals", "Cadet and Junior competitors"],
+            ["5:00–5:30 p.m.", "Cadet and Junior medal presentations", "Medal recipients"],
+            ["5:30–6:00 p.m.", "Reserved overrun window and end-of-day notices", "All participants"],
+        ],
+    },
+    {
+        day: "Sunday, 11 April 2027",
+        title: "Under-21 and Senior Kyorugi",
+        note: "Under-21 weight categories and eligibility remain subject to confirmation. All times are proposed East Africa Time (EAT).",
+        rows: [
+            ["7:00–8:00 a.m.", "Venue opens; athlete arrival and accreditation collection", "Athletes and coaches"],
+            ["7:30–8:00 a.m.", "Referees’ briefing, equipment checks and scoring-system checks", "Referees and officials"],
+            ["8:00–8:20 a.m.", "Coaches’ briefing and athlete assembly", "Coaches and athletes"],
+            ["8:20–8:30 a.m.", "First match call-up", "Under-21 competitors"],
+            ["8:30–10:30 a.m.", "Under-21 Kyorugi — preliminary and quarter-final rounds, where applicable", "Under-21 competitors"],
+            ["10:30–10:45 a.m.", "Scheduled break", "All participants"],
+            ["10:45 a.m.–12:15 p.m.", "Under-21 Kyorugi — semi-finals and finals", "Under-21 competitors"],
+            ["12:15–12:45 p.m.", "Under-21 medal presentations", "Medal recipients"],
+            ["12:45–1:30 p.m.", "Lunch break", "All participants"],
+            ["1:30–3:30 p.m.", "Senior Kyorugi — preliminary and quarter-final rounds, where applicable", "Senior competitors"],
+            ["3:30–3:45 p.m.", "Scheduled break", "All participants"],
+            ["3:45–5:00 p.m.", "Senior Kyorugi — semi-finals and finals", "Senior competitors"],
+            ["5:00–5:30 p.m.", "Senior medal presentations", "Medal recipients"],
+            ["5:30–6:00 p.m.", "Closing ceremony and any confirmed special awards", "All participants"],
+            ["6:00–6:30 p.m.", "Reserved overrun window and departures", "All participants"],
+        ],
+    },
+];
 ---
 
 <BaseLayout
@@ -348,25 +404,85 @@ const schema = {
 
     <!-- Schedule -->
     <section class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 reveal">
                 <p class="section-subtitle">Programme of Events</p>
                 <h2 class="section-title">Schedule</h2>
+                <p class="font-body text-gray-600 text-base max-w-3xl mx-auto mt-4">
+                    Provisional programme for Saturday 10 and Sunday 11 April 2027.
+                    All times are proposed East Africa Time (EAT), not confirmed
+                    event arrangements. The final timetable depends on confirmed
+                    entries, competition areas, approved rules and technical arrangements.
+                </p>
             </div>
-            <div class="card p-10 text-center reveal">
-                <div class="text-6xl mb-4">🗓️</div>
-                <p class="font-display font-bold text-3xl text-navy mb-4">
-                    [PLACEHOLDER: Full schedule to be published]
+            <div class="space-y-10">
+                {provisionalSchedule.map((day) => (
+                    <div class="card p-6 sm:p-8 reveal">
+                        <div class="mb-5">
+                            <h3 class="font-display font-bold text-2xl sm:text-3xl text-navy">
+                                {day.day} — {day.title}
+                            </h3>
+                            <p class="font-body text-gray-500 text-sm mt-2">{day.note}</p>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left font-body text-sm">
+                                <thead class="bg-navy text-white">
+                                    <tr>
+                                        <th scope="col" class="p-3 whitespace-nowrap">Time</th>
+                                        <th scope="col" class="p-3">Activity</th>
+                                        <th scope="col" class="p-3">Participants</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {day.rows.map(([time, activity, participants]) => (
+                                        <tr class="border-b border-gray-200 even:bg-bluegrey/50">
+                                            <th scope="row" class="p-3 font-semibold text-navy whitespace-nowrap">{time}</th>
+                                            <td class="p-3 text-gray-700">{activity}</td>
+                                            <td class="p-3 text-gray-600">{participants}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div class="card p-6 sm:p-8 mt-10 reveal">
+                <h3 class="font-display font-bold text-2xl text-navy mb-3">
+                    Saturday parallel administration
+                </h3>
+                <p class="font-body text-gray-500 text-sm mb-4">
+                    Proposed accreditation and weigh-in for Sunday divisions.
+                    This should be held in a separate, appropriately staffed area
+                    so it does not interrupt Saturday’s competition.
                 </p>
-                <p class="font-body text-gray-600 text-lg leading-relaxed mb-6">
-                    The detailed day schedule — including weigh-in times, draw
-                    ceremony, kyorugi rounds and poomsae timings — will be
-                    published in the official event bulletin. Register your
-                    interest below to be notified.
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left font-body text-sm">
+                        <thead class="bg-navy text-white">
+                            <tr>
+                                <th scope="col" class="p-3 whitespace-nowrap">Time</th>
+                                <th scope="col" class="p-3">Activity</th>
+                                <th scope="col" class="p-3">Participants</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200">
+                                <th scope="row" class="p-3 font-semibold text-navy whitespace-nowrap">3:00–5:00 p.m.</th>
+                                <td class="p-3 text-gray-700">Proposed accreditation and official weigh-in for Sunday Kyorugi divisions</td>
+                                <td class="p-3 text-gray-600">Under-21 and Senior Kyorugi athletes</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 bg-bluegrey/50">
+                                <th scope="row" class="p-3 font-semibold text-navy whitespace-nowrap">From 6:00 p.m.</th>
+                                <td class="p-3 text-gray-700">Sunday draws and reporting instructions published</td>
+                                <td class="p-3 text-gray-600">All Sunday competitors</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="font-body text-xs text-gray-500 mt-4">
+                    Weigh-in arrangements, eligibility checks and draw publication
+                    remain subject to technical approval and the approved event regulations.
                 </p>
-                <a href="/contact#open" class="btn-primary text-xl px-8 py-4"
-                    >Register Interest & Get Notified →</a
-                >
             </div>
         </div>
     </section>
@@ -632,7 +748,7 @@ const schema = {
             <p class="font-body text-blue-100 text-lg mb-8">
                 Download the event bulletin for confirmed event details,
                 planned divisions and spectator information. Registration,
-                entry fees and the detailed schedule will be announced separately.
+                entry fees and final technical arrangements will be announced separately.
             </p>
             <a
                 href="/documents/mount-kenya-international-taekwondo-open-2027-bulletin.pdf"
